@@ -13,7 +13,7 @@ Or `brew tap sscotth/backgroundmusic` and then `brew install background-music`.
 Or install via URL:
 
 ```
-brew install https://raw.githubusercontent.com/sscotth/homebrew-backgroundmusic/master/Formula/background-music.rb
+brew install https://raw.githubusercontent.com/sscotth/homebrew-backgroundmusic/master/Casks/background-music.rb
 ```
 
 ## Documentation
