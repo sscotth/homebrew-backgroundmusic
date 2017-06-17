@@ -6,6 +6,8 @@ cask 'background-music' do
   name 'Background Music'
   homepage 'https://github.com/kyleneideck/BackgroundMusic'
 
+  depends_on macos: '>= 10.9'
+
   pkg "BackgroundMusic-#{version}.pkg"
 
   uninstall script:    {
