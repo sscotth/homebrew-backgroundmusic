@@ -5,6 +5,7 @@ cask 'background-music' do
   url "https://github.com/kyleneideck/BackgroundMusic/releases/download/v#{version}/BackgroundMusic-#{version}.pkg"
   name 'Background Music'
   homepage 'https://github.com/kyleneideck/BackgroundMusic'
+  gpg "#{url}.asc", key_id: '0595df814e41a6f69334c5e2caa8d9b8e39ec18c'
 
   depends_on macos: '>= 10.9'
 
