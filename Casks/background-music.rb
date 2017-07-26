@@ -1,11 +1,25 @@
 cask 'background-music' do
-  version 'untagged-221ecabb2d939df5ed86'
-  sha256 'deae401360b3471fb1e08c1cca8eb7889906e5d974d0a484d3188bae6507c03d'
+  version '0.1.1'
+  sha256 '7ce875bb00fdeb2b5b363aa92367b3fa096d18cb02a02c461d5df66307ab1088'
 
-  # github.com/sscotth/backgroundmusic was verified as **not** official when first introduced to the cask
-  url "https://github.com/sscotth/backgroundmusic/releases/download/#{version}/BackgroundMusic.app.zip"
+  url "https://github.com/kyleneideck/BackgroundMusic/releases/download/v#{version}/BackgroundMusic-#{version}.pkg"
   name 'Background Music'
   homepage 'https://github.com/kyleneideck/BackgroundMusic'
+  gpg "#{url}.asc", key_id: '0595df814e41a6f69334c5e2caa8d9b8e39ec18c'
 
-  app 'Background Music.app'
+  depends_on macos: '>= 10.9'
+
+  pkg "BackgroundMusic-#{version}.pkg"
+
+  uninstall script:    {
+                         executable: "#{appdir}/Background Music.app/Contents/Resources/_uninstall-non-interactive.sh",
+                         sudo:       false,
+                       },
+            pkgutil:   'com.bearisdriving.BGM',
+            quit:      [
+                         'com.bearisdriving.BGM.App',
+                       ],
+            launchctl: [
+                         'com.bearisdriving.BGM.XPCHelper',
+                       ]
 end
